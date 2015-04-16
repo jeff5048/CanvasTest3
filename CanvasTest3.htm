@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ellipse Transform Graphic</title>
+	<meta name="description" content="Ellipse Transform Graphic">
+	<meta name="author" content="Jeff Warrow">
+	<!---<link rel="stylesheet" href="css/styles.css?v=1.0">--->
+
+<style>
+	body {font-size:9pt; font-family:Tahoma;}
+	h1 {font-size:16pt;}
+	h2 {font-size:14pt;}
+	h3 {font-size:12pt;}
+	details {font-size:9pt;}
+	p {margin:0; margin-bottom:6pt; border:0;}
+	#example {border: solid 1pt green;}
+	#ptest {font-size:12pt; color:red; font-weight: bold;}
+</style>
+
+<script type="text/JavaScript" src="ElipseCanvas.js"></script>
+
+</head>
+
+<body onLoad="CopyrightDate();DrawCanvas();">
+
+<table cellpadding="0" cellspacing="0" border="0">
+<tr><td style="vertical-align:top">
+<h1>Ellipse Transform Graphic</h1>
+<p>By Jeff Warrow</p>
+<p>The following page is written in HTML5 using CCS3 and JavaScript.  <br>
+The program fills an HTML5 Canvas element with ellipses.</p>
+
+</td>
+<td>
+<br>
+<form id="userselect">
+
+<!---<label>Select Color:</label> <input type="color"><br>--->
+<section style="background-color:#f8f8f8;width:480px; padding:10px; float:left;">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td><label>Count: </label></td>
+<td>1
+<input id="countCtrl" type="range" min="1" max="100" value="50" style="width:200px;" 
+	onchange="document.getElementById('ItemCount').innerHTML = this.value;
+	maxcount=this.value;
+	document.getElementById('ItemCount').innerHTML = this.value;
+	DrawCanvas();">
+100</td>
+<td style="text-align:right;">
+	<div id="ItemCount" style="display: inline; font-weight:bold;">50</div>
+</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><label>Color: </label></td>
+<td>0
+<input id="colorCtrl" type="range" min="0" max="360" value="0" style="width:200px;" 
+	onchange="color=this.value/360;
+	document.getElementById('ColorValue').innerHTML = this.value;
+	document.getElementById('ColorSelected').style.backgroundColor = '#' + hslToHex(this.value/360, 1, 0.5);
+	DrawCanvas();">
+360</td>
+<td style="text-align:right; width:40px;">
+	<div id="ColorValue" style="display: inline; font-weight:bold;">0</div>
+</td>
+<td style="width:100px;">&nbsp;&nbsp;&nbsp;<div id="ColorSelected" style="display: inline; width:50px; border:1px solid black; background-color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+</tr>
+
+<tr>
+<td><label>Color Deviation:&nbsp;&nbsp;</label></td>  
+<td>0
+<input id="cDevCtrl" type="range" min="0" max="100" value="5" style="width:200px;" 
+	onchange="document.getElementById('ColorDeviationValue').innerHTML = this.value;
+	dcolor=this.value/100;
+	DrawCanvas();">
+100</td>
+<td style="text-align:right;">
+	<div id="ColorDeviationValue" style="display: inline; font-weight:bold;">5</div>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<br>
+<input type="button" value="Draw Ellipses" onclick="DrawCanvas();">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="complementaryColors" id="complementaryColors" value="1" onclick="DrawCanvas();" checked>Single&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="complementaryColors" id="complementaryColors" value="2" onclick="DrawCanvas();">Cross&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="complementaryColors" id="complementaryColors" value="3" onclick="DrawCanvas();">Tri&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="complementaryColors" id="complementaryColors" value="4" onclick="DrawCanvas();">Quad&nbsp;&nbsp;&nbsp;&nbsp;
+
+</section>
+
+</form>
+</td></tr></table>
+
+<br>
+<br>
+<canvas id="example" width="900" height="500">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+
+<footer>
+<hr>
+<details>
+<summary>Copyright Sol3 Internet &copy;<div id="copyrightYear" style="display: inline"></div>.</summary>
+<p>by <a href="mailto:jeff5048@aol.com">Jeff Warrow</a>. All Rights Reserved.<br>
+All content and graphics on this web site are the property of Sol3 Internet.</p>
+</details>
+</footer>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>
